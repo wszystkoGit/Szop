@@ -1,24 +1,31 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Player {
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     private int x;
     private int y;
 
+
+
+    private boolean alive;
+
     public Player(){
-        this.x = 0;
-        this.y = 0;
+        this(0,0);
     }
     public Player(int x, int y){
         this.x = x;
         this.y = y;
+        this.alive = true;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public boolean isAlive() {
+        return alive;
     }
 
     public void moveUp(){
@@ -43,6 +50,13 @@ public class Player {
         if (x < Board.getRightWall()){
             x++;
         }
-
     }
+
+    public void die(){
+        this.alive = false;
+    }
+    public void eat(ArrayList<Block> blocks, Block block){
+        blocks.remove(block);
+    }
+
 }

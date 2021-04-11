@@ -2,6 +2,9 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.concurrent.BlockingDeque;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -72,6 +75,24 @@ class PlayerTest {
             player.moveRight();
         }
         assertEquals(Board.getRightWall(), player.getX());
+    }
+
+    //=================Die======//
+    @Test
+    void testPlayerDie(){
+        Player player = new Player();
+        player.die();
+        assertFalse(player.isAlive());
+    }
+    @Test
+    void testBlockEaten(){
+        Player player = new Player();
+        Block block = new Block();
+        ArrayList<Block> blocks = new ArrayList<>();
+        blocks.add(block);
+        player.eat(blocks, block);
+        assertFalse(blocks.contains(block), blocks + " contains: " + block);
+
     }
 
 }
