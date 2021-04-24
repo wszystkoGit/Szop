@@ -1,8 +1,8 @@
 package model;
 
 public class Board {
-    private final static int ceiling = 20;
-    private final static int floor =0;
+    private final static int ceiling = 0;
+    private final static int floor =20;
     private final static int leftWall =0;
     private final static int rightWall = 10;
 

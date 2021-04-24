@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private int x;
@@ -29,14 +29,14 @@ public class Player {
     }
 
     public void moveUp(){
-        if (y < Board.getCeiling()){
-            y++;
+        if (y > Board.getCeiling()){
+            y--;
         }
     }
 
     public void moveDown() {
-        if (y > Board.getFloor()){
-            y--;
+        if (y < Board.getFloor()){
+            y++;
         }
     }
 
@@ -55,7 +55,7 @@ public class Player {
     public void die(){
         this.alive = false;
     }
-    public void eat(ArrayList<Block> blocks, Block block){
+    public void eat(List<Block> blocks, Block block){
         blocks.remove(block);
     }
 

@@ -3,6 +3,7 @@ package model;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingDeque;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,36 +12,21 @@ class PlayerTest {
 
     //=======MoveUp======//
     @Test
-    void testMoveUpChangesYPlusOne() {
-        Player player = new Player();
+    void testMoveUpChangesYMinusOne() {
+        Player player = new Player(5,5);
         int y = player.getY();
         player.moveUp();
-        assertEquals(y+1,player.getY());
-    }
-    @Test
-    void testMoveUpCannotMovePastCeiling(){
-        Player player = new Player();
-        for (int i = 0; i < Board.getCeiling() + 5; i++) {
-            player.moveUp();
-        }
-        assertEquals(Board.getCeiling(), player.getY(),"Player is above ceiling.");
+        assertEquals(y-1,player.getY());
     }
 
     //=======MoveDown======//
 
     @Test
-    void testMoveDownChangesYMinusOne(){
+    void testMoveDownChangesYPlusOne(){
         Player player = new Player(0, 5);
+        int y = player.getY();
         player.moveDown();
-        assertEquals(4, player.getY());
-    }
-    @Test
-    void testMoveDownCannotMovePastFloor(){
-        Player player = new Player(0, 5);
-        for (int i = 0; i < 20; i++) {
-            player.moveDown();
-        }
-        assertEquals(Board.getFloor(), player.getY());
+        assertEquals(y+1, player.getY());
     }
 
     //=======MoveLeft======//
@@ -48,33 +34,17 @@ class PlayerTest {
     @Test
     void testMoveLeftChangesXMinusOne(){
         Player player = new Player(5, 0);
+        int x = player.getX();
         player.moveLeft();
-        assertEquals(4, player.getX());
+        assertEquals(x-1, player.getX());
     }
-    @Test
-    void testMoveLeftCannotMovePastLeftWall(){
-        Player player = new Player(5, 0);
-        for (int i = 0; i < 20; i++) {
-            player.moveLeft();
-        }
-        assertEquals(Board.getLeftWall(),player.getX());
-    }
-
-    //=======MoveRight======//
 
     @Test
     void testMoveRightChangesXPlusOne(){
         Player player = new Player();
+        int x = player.getX();
         player.moveRight();
-        assertEquals(1,player.getX());
-    }
-    @Test
-    void testMoveRightCannotMovePastRightWall(){
-        Player player = new Player();
-        for (int i = 0; i < Board.getRightWall() + 5; i++) {
-            player.moveRight();
-        }
-        assertEquals(Board.getRightWall(), player.getX());
+        assertEquals(x+1,player.getX());
     }
 
     //=================Die======//
@@ -84,15 +54,6 @@ class PlayerTest {
         player.die();
         assertFalse(player.isAlive());
     }
-    @Test
-    void testBlockEaten(){
-        Player player = new Player();
-        Block block = new Block();
-        ArrayList<Block> blocks = new ArrayList<>();
-        blocks.add(block);
-        player.eat(blocks, block);
-        assertFalse(blocks.contains(block), blocks + " contains: " + block);
 
-    }
 
 }
