@@ -1,6 +1,6 @@
-package model.blockShapes;
+package model.block.blockShapes;
 
-import model.Block;
+import model.block.Block;
 
 
 public class BlockI extends Block {

@@ -1,7 +1,6 @@
-package model;
+package model.block;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Block {
     private ArrayList<Brick> bricks;
@@ -18,10 +17,6 @@ public abstract class Block {
         addBrick(x2, y2);
         addBrick(x3, y3);
 
-    }
-
-    public Block() {
-        this(0, 0, 0, 0, 0, 0, 0, 0);
     }
 
     public ArrayList<Brick> getBricks() {
@@ -48,7 +43,7 @@ public abstract class Block {
                 bricks) {
             int x = brick.getY();
             int y = -brick.getX();
-            brick.setBrick(x,y);
+            brick.setBrick(x, y);
         }
         center();
 
@@ -60,16 +55,16 @@ public abstract class Block {
         int minX = bricks.get(0).getX();
         for (Brick brick :
                 bricks) {
-         if (minX > brick.getX()){
-             minX = brick.getX();
-         }
+            if (minX > brick.getX()) {
+                minX = brick.getX();
+            }
         }
 
         //Move all bricks by absolute value of lowest brick.X value if it's negative.
-        if (minX < 0){
+        if (minX < 0) {
             for (Brick brick :
                     bricks) {
-                brick.setBrick(brick.getX()-minX, brick.getY());
+                brick.setBrick(brick.getX() - minX, brick.getY());
             }
         }
 
@@ -77,25 +72,23 @@ public abstract class Block {
         int minY = bricks.get(0).getY();
         for (Brick brick :
                 bricks) {
-            if (minY > brick.getY()){
+            if (minY > brick.getY()) {
                 minY = brick.getY();
             }
         }
 
         //Move all bricks by absolute value of lowest brick.Y value if it's negative.
-        if (minY < 0){
+        if (minY < 0) {
             for (Brick brick :
                     bricks) {
-                brick.setBrick(brick.getX(), brick.getY()-minY);
+                brick.setBrick(brick.getX(), brick.getY() - minY);
             }
         }
 
 
-
-
     }
 
-    public void move(int distance) {
+    void move(int distance) {
         for (Brick brick :
                 bricks) {
             brick.setBrick(brick.getX() + distance, brick.getY());

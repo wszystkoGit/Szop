@@ -1,5 +1,7 @@
 package model;
 
+import model.block.Block;
+
 import java.util.List;
 
 public class Player {
@@ -8,24 +10,21 @@ public class Player {
 
 
 
-    private boolean alive;
+
 
     public Player(){
-        this(0,0);
+        this(Board.getRightWall()-1,Board.getFloor()-1);
     }
     public Player(int x, int y){
         this.x = x;
         this.y = y;
-        this.alive = true;
+
     }
     public int getX() {
         return x;
     }
     public int getY() {
         return y;
-    }
-    public boolean isAlive() {
-        return alive;
     }
 
     public void moveUp(){
@@ -52,11 +51,6 @@ public class Player {
         }
     }
 
-    public void die(){
-        this.alive = false;
-    }
-    public void eat(List<Block> blocks, Block block){
-        blocks.remove(block);
-    }
+
 
 }

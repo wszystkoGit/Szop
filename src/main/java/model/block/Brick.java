@@ -1,4 +1,4 @@
-package model;
+package model.block;
 
 import java.util.Objects;
 
