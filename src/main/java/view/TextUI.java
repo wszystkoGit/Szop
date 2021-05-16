@@ -1,5 +1,6 @@
 package view;
 
+import model.Direction;
 import model.Game;
 import model.block.Block;
 import model.Board;
@@ -18,35 +19,6 @@ public class TextUI {
         printBoard(testGame.getBoard());
         testGame.update();
         printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-        testGame.update();
-        printBoard(testGame.getBoard());
-
 
         //Game.
     }

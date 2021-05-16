@@ -9,9 +9,9 @@ import java.util.List;
 public class Board {
     //====================================================
     private final static int ceiling = 0;
-    private final static int floor =15;
+    private final static int floor =20;
     private final static int leftWall =0;
-    private final static int rightWall = 10;
+    private final static int rightWall = 15;
 
     public static int getCeiling() {
         return ceiling;
