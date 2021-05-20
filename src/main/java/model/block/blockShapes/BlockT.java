@@ -8,5 +8,6 @@ public class BlockT extends Block {
                 0,1,
                 1,1,
                 0,2);
+        super.color = "aqua";
     }
 }

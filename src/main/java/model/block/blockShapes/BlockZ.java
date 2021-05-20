@@ -8,5 +8,6 @@ public class BlockZ extends Block {
                 1,0,
                 1,1,
                 2,1);
+        super.color = "violet";
     }
 }

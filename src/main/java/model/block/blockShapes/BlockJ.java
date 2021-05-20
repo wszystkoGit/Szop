@@ -8,5 +8,6 @@ public class BlockJ extends Block {
                 1,1,
                 1,2,
                 0,2);
+        super.color = "green";
     }
 }

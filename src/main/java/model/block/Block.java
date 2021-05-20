@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Block {
     private ArrayList<Brick> bricks;
+    protected String color;
 
 
     public Block(int x0, int y0,
@@ -17,6 +18,10 @@ public abstract class Block {
         addBrick(x2, y2);
         addBrick(x3, y3);
 
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public ArrayList<Brick> getBricks() {

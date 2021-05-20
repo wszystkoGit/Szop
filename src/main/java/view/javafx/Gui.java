@@ -58,8 +58,9 @@ public class Gui extends Application {
                     block.getBricks()) {
                 int x = brickToPaint.getX();
                 int y = brickToPaint.getY();
+                String color = block.getColor();
 
-                drawRectangle(x,y, "red");
+                drawRectangle(x,y, color);
             }
         }
     }
@@ -67,8 +68,9 @@ public class Gui extends Application {
     private void drawPlayer(){
         int x = game.getPlayer().getX();
         int y = game.getPlayer().getY();
+        String color = "blue";
 
-        drawRectangle(x,y, "blue");
+        drawRectangle(x,y, color);
     }
 
     private void drawRectangle(int x, int y, String color){

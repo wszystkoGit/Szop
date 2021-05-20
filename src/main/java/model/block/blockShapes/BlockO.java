@@ -8,5 +8,6 @@ public class BlockO extends Block {
                 1,0,
                 0,1,
                 1,1);
+        super.color = "gray";
     }
 }
