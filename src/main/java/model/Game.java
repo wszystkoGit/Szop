@@ -26,6 +26,13 @@ public class Game {
         return board.getArea();
     }
 
+    public ArrayList<Block> getBlocksStorage() {
+        return blocksStorage;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
 
     //=====================================================
     public void start() {
