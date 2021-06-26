@@ -30,9 +30,18 @@ public class Game {
         return blocksStorage;
     }
 
-    public Player getPlayer() {
-        return player;
+
+    public boolean isOver() {
+        return over;
     }
+
+    public int getPlayerX(){
+        return player.getX();
+    }
+    public int getPlayerY(){
+        return player.getY();
+    }
+
 
     //=====================================================
     public void start() {
@@ -58,7 +67,7 @@ public class Game {
         }
 
         blocksFall();
-        board.update(player, blocksStorage);
+        addBlock();
     }
 
 
@@ -100,9 +109,7 @@ public class Game {
 
     //=====================================================
     private void blocksFall() {
-        if (over){
-            return;
-        }
+
         for (Block block :
                 blocksStorage) {
             if (canFall(block))
@@ -193,11 +200,15 @@ public class Game {
         }
         try{
             blocksStorage.remove(eaten);
+
         } catch (Exception e){
 
         }
     }
-    private void movePlayer(Direction direction){
+    public void movePlayer(Direction direction){
+        if (over){
+            return;
+        }
         switch (direction){
             case UP:
                 player.moveUp();

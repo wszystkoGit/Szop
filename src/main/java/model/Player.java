@@ -34,7 +34,7 @@ public class Player {
     }
 
     public void moveDown() {
-        if (y < Board.getFloor()){
+        if (y < Board.getFloor()-1){
             y++;
         }
     }
@@ -46,7 +46,7 @@ public class Player {
     }
 
     public void moveRight(){
-        if (x < Board.getRightWall()){
+        if (x < Board.getRightWall()-1){
             x++;
         }
     }

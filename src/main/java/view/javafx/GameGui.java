@@ -1,55 +1,54 @@
 package view.javafx;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import model.Board;
 import model.Game;
 import model.block.Block;
 import model.block.Brick;
 
-public class Gui extends Application {
-    private final int brickSize = 20;
+public class GameGui {
+    private Game game;
+    private final int brickSize = 30;
 
-    Game game = new Game();
-    Pane gamePane = new Pane();
-    Pane scorePane = new Pane();
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Pane main = new Pane();
-
-
-
-        main.getChildren().addAll(gamePane);
-
-        Scene scene = new Scene(main);
-        stage.setScene(scene);
-        stage.show();
-        testGame();
-        updateGame();
+    public Pane getGamePane() {
+        return gamePane;
     }
 
-    public void testGame(){
-        game.start();
+    private Pane gamePane;
 
+    public GameGui(Game game){
+        this.game = game;
+        gamePaneInit();
     }
-    public void updateGame(){
-        game.update();
+
+    private void gamePaneInit(){
+        String color = "white";
+        int width = brickSize * Board.getRightWall();
+        int height = brickSize * Board.getFloor();
+        gamePane = new Pane();
+        gamePane.setStyle("-fx-background-color: " + color + "; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: black; -fx-min-width: " + width + "; -fx-min-height:" + height + "; -fx-max-width:" + width + "; -fx-max-height: " + height + ";");
+    }
+
+
+    public void update(){
         drawGame();
     }
 
     public void drawGame(){
-
+        gamePane.getChildren().clear();
         drawBlocks();
         drawPlayer();
-
-
-
     }
     private void drawBlocks(){
         for (Block block :
@@ -66,8 +65,8 @@ public class Gui extends Application {
     }
 
     private void drawPlayer(){
-        int x = game.getPlayer().getX();
-        int y = game.getPlayer().getY();
+        int x = game.getPlayerX();
+        int y = game.getPlayerY();
         String color = "blue";
 
         drawRectangle(x,y, color);
@@ -85,5 +84,9 @@ public class Gui extends Application {
         rectangle.setStyle("-fx-background-color: " + color + "; -fx-border-style: solid; -fx-border-width: 2; -fx-border-color: black; -fx-min-width: " + brickSize + "; -fx-min-height:" + brickSize + "; -fx-max-width:" + brickSize + "; -fx-max-height: " + brickSize + ";");
 
         gamePane.getChildren().add(rectangle);
+    }
+
+    public void gameOver(){
+
     }
 }
